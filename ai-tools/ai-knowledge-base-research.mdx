@@ -20,108 +20,114 @@ AI知识库是结合人工智能技术的新型知识管理系统，通过自然
 ## 核心技术架构
 
 <AccordionGroup>
-<Accordion title="向量数据库">
-  向量数据库是AI知识库的基础设施，用于存储和检索文档的向量表示。
-  
-  **主流方案**：
-  - **Pinecone**：云原生向量数据库，易于扩展
-  - **Weaviate**：开源向量搜索引擎，支持多模态
-  - **Milvus**：高性能开源向量数据库
-  - **Qdrant**：Rust编写的高效向量引擎
-  
-  **关键指标**：
-  - 检索速度（QPS）
-  - 向量维度支持
-  - 相似度算法（余弦、欧氏距离等）
-</Accordion>
+  <Accordion title="向量数据库">
+    向量数据库是AI知识库的基础设施，用于存储和检索文档的向量表示。
 
-<Accordion title="文档处理与分块">
-  将原始文档转换为适合向量化的文本块。
-  
-  **处理流程**：
-  1. 文档解析（PDF、Word、Markdown等）
-  2. 文本清洗和预处理
-  3. 智能分块（Chunking）
-  4. 元数据提取
-  
-  **分块策略**：
-  - 固定长度分块（如512 tokens）
-  - 语义分块（按段落、章节）
-  - 滑动窗口分块
-  - 递归分块
-</Accordion>
+    **主流方案**：
 
-<Accordion title="嵌入模型（Embedding）">
-  将文本转换为高维向量表示。
-  
-  **常用模型**：
-  - **OpenAI text-embedding-3**：高质量商业模型
-  - **BGE系列**：中文优化的开源模型
-  - **Sentence-BERT**：轻量级开源方案
-  - **Cohere Embed**：多语言支持
-  
-  **选择考量**：
-  - 向量维度（768/1536/3072）
-  - 语言支持（中文/英文/多语言）
-  - 成本和性能平衡
-</Accordion>
+    - **Pinecone**：云原生向量数据库，易于扩展
+    - **Weaviate**：开源向量搜索引擎，支持多模态
+    - **Milvus**：高性能开源向量数据库
+    - **Qdrant**：Rust编写的高效向量引擎
 
-<Accordion title="检索增强生成（RAG）">
-  结合检索和生成的混合架构。
-  
-  **工作流程**：
-  1. 用户查询向量化
-  2. 向量相似度检索
-  3. 上下文重排序（Reranking）
-  4. 提示词构建
-  5. LLM生成答案
-  
-  **优化技术**：
-  - 混合检索（向量+关键词）
-  - 查询改写（Query Rewriting）
-  - 上下文压缩
-  - 引用溯源
-</Accordion>
+    **关键指标**：
+
+    - 检索速度（QPS）
+    - 向量维度支持
+    - 相似度算法（余弦、欧氏距离等）
+  </Accordion>
+  <Accordion title="文档处理与分块">
+    将原始文档转换为适合向量化的文本块。
+
+    **处理流程**：
+
+    1. 文档解析（PDF、Word、Markdown等）
+    2. 文本清洗和预处理
+    3. 智能分块（Chunking）
+    4. 元数据提取
+
+    **分块策略**：
+
+    - 固定长度分块（如512 tokens）
+    - 语义分块（按段落、章节）
+    - 滑动窗口分块
+    - 递归分块
+  </Accordion>
+  <Accordion title="嵌入模型（Embedding）">
+    将文本转换为高维向量表示。
+
+    **常用模型**：
+
+    - **OpenAI text-embedding-3**：高质量商业模型
+    - **BGE系列**：中文优化的开源模型
+    - **Sentence-BERT**：轻量级开源方案
+    - **Cohere Embed**：多语言支持
+
+    **选择考量**：
+
+    - 向量维度（768/1536/3072）
+    - 语言支持（中文/英文/多语言）
+    - 成本和性能平衡
+  </Accordion>
+  <Accordion title="检索增强生成（RAG）">
+    结合检索和生成的混合架构。
+
+    **工作流程**：
+
+    1. 用户查询向量化
+    2. 向量相似度检索
+    3. 上下文重排序（Reranking）
+    4. 提示词构建
+    5. LLM生成答案
+
+    **优化技术**：
+
+    - 混合检索（向量+关键词）
+    - 查询改写（Query Rewriting）
+    - 上下文压缩
+    - 引用溯源
+  </Accordion>
 </AccordionGroup>
 
 ## 主流产品对比
 
 <CardGroup cols={2}>
-<Card title="Notion AI" icon="n" href="https://notion.so">
-  集成在Notion中的AI知识助手，支持文档问答和内容生成。
-  
-  **特点**：
-  - 无缝集成现有工作流
-  - 支持多种内容类型
-  - 协作友好
-</Card>
+  <Card title="Notion AI" icon="n" href="https://notion.so">
+    集成在Notion中的AI知识助手，支持文档问答和内容生成。
 
-<Card title="Glean" icon="magnifying-glass" href="https://glean.com">
-  企业级AI搜索平台，连接所有企业应用。
-  
-  **特点**：
-  - 跨平台知识整合
-  - 权限感知搜索
-  - 个性化推荐
-</Card>
+    **特点**：
 
-<Card title="Mendable" icon="message-bot" href="https://mendable.ai">
-  面向技术文档的AI问答系统。
-  
-  **特点**：
-  - 专注开发者文档
-  - 易于集成
-  - 自定义训练
-</Card>
+    - 无缝集成现有工作流
+    - 支持多种内容类型
+    - 协作友好
+  </Card>
+  <Card title="Glean" icon="magnifying-glass" href="https://glean.com">
+    企业级AI搜索平台，连接所有企业应用。
 
-<Card title="Dify" icon="cube" href="https://dify.ai">
-  开源LLM应用开发平台，支持知识库构建。
-  
-  **特点**：
-  - 完全开源
-  - 可视化编排
-  - 私有化部署
-</Card>
+    **特点**：
+
+    - 跨平台知识整合
+    - 权限感知搜索
+    - 个性化推荐
+  </Card>
+  <Card title="Mendable" icon="message-bot" href="https://mendable.ai">
+    面向技术文档的AI问答系统。
+
+    **特点**：
+
+    - 专注开发者文档
+    - 易于集成
+    - 自定义训练
+  </Card>
+  <Card title="Dify" icon="cube" href="https://dify.ai">
+    开源LLM应用开发平台，支持知识库构建。
+
+    **特点**：
+
+    - 完全开源
+    - 可视化编排
+    - 私有化部署
+  </Card>
 </CardGroup>
 
 ## 应用场景
@@ -129,25 +135,23 @@ AI知识库是结合人工智能技术的新型知识管理系统，通过自然
 ### 企业内部知识管理
 
 <Steps>
-<Step title="文档集中管理">
-  将分散在各个系统的文档统一导入知识库。
-  
-  <Tip>
-  支持的数据源包括：Confluence、Notion、Google Docs、本地文件等。
-  </Tip>
-</Step>
+  <Step title="文档集中管理">
+    将分散在各个系统的文档统一导入知识库。
 
-<Step title="智能问答系统">
-  员工通过自然语言提问，快速获取准确答案。
-  
-  <Check>
-  可减少70%的重复性咨询工作。
-  </Check>
-</Step>
+    <Tip>
+      支持的数据源包括：Confluence、Notion、Google Docs、本地文件等。
+    </Tip>
+  </Step>
+  <Step title="智能问答系统">
+    员工通过自然语言提问，快速获取准确答案。
 
-<Step title="新员工培训">
-  新员工可以随时查询公司制度、流程和最佳实践。
-</Step>
+    <Check>
+      可减少70%的重复性咨询工作。
+    </Check>
+  </Step>
+  <Step title="新员工培训">
+    新员工可以随时查询公司制度、流程和最佳实践。
+  </Step>
 </Steps>
 
 ### 客户服务支持
@@ -159,7 +163,7 @@ AI知识库是结合人工智能技术的新型知识管理系统，通过自然
 ### 技术文档助手
 
 <Info>
-开发者可以快速查询API文档、代码示例和最佳实践，提升开发效率。
+  开发者可以快速查询API文档、代码示例和最佳实践，提升开发效率。
 </Info>
 
 ## 技术实现示例
@@ -167,6 +171,7 @@ AI知识库是结合人工智能技术的新型知识管理系统，通过自然
 ### 基础RAG实现
 
 <CodeGroup>
+
 ```python Python
 from langchain.embeddings import OpenAIEmbeddings
 from langchain.vectorstores import Pinecone
@@ -203,6 +208,7 @@ qa_chain = RetrievalQA.from_chain_type(
 result = qa_chain({"query": "如何配置API认证？"})
 print(result["result"])
 ```
+
 
 ```typescript TypeScript
 import { OpenAIEmbeddings } from "@langchain/openai";
@@ -241,6 +247,7 @@ const result = await chain.call({
 });
 console.log(result.text);
 ```
+
 </CodeGroup>
 
 ### 文档分块处理
@@ -271,7 +278,7 @@ for i, doc in enumerate(documents):
 ## 最佳实践
 
 <Warning>
-构建高质量AI知识库需要注意以下关键点。
+  构建高质量AI知识库需要注意以下关键点。
 </Warning>
 
 ### 数据质量管理
@@ -280,12 +287,10 @@ for i, doc in enumerate(documents):
    - 统一格式和结构
    - 清晰的标题层级
    - 完整的元数据
-
 2. **定期更新**
    - 建立文档审核机制
    - 及时删除过时内容
    - 版本控制
-
 3. **质量评估**
    - 监控检索准确率
    - 收集用户反馈
@@ -294,64 +299,62 @@ for i, doc in enumerate(documents):
 ### 检索优化策略
 
 <Tabs>
-<Tab title="混合检索">
-  结合向量检索和关键词检索，提高召回率。
-  
-  ```python
-  from langchain.retrievers import EnsembleRetriever
-  
-  # 向量检索器
-  vector_retriever = vectorstore.as_retriever(search_kwargs={"k": 5})
-  
-  # 关键词检索器
-  bm25_retriever = BM25Retriever.from_documents(documents)
-  
-  # 混合检索器
-  ensemble_retriever = EnsembleRetriever(
-      retrievers=[vector_retriever, bm25_retriever],
-      weights=[0.7, 0.3]
-  )
-  ```
-</Tab>
+  <Tab title="混合检索">
+    结合向量检索和关键词检索，提高召回率。
 
-<Tab title="重排序">
-  使用专门的重排序模型提升结果质量。
-  
-  ```python
-  from langchain.retrievers import ContextualCompressionRetriever
-  from langchain.retrievers.document_compressors import CohereRerank
-  
-  # 重排序器
-  compressor = CohereRerank(model="rerank-multilingual-v2.0")
-  
-  # 压缩检索器
-  compression_retriever = ContextualCompressionRetriever(
-      base_compressor=compressor,
-      base_retriever=retriever
-  )
-  ```
-</Tab>
+    ```python
+    from langchain.retrievers import EnsembleRetriever
+    
+    # 向量检索器
+    vector_retriever = vectorstore.as_retriever(search_kwargs={"k": 5})
+    
+    # 关键词检索器
+    bm25_retriever = BM25Retriever.from_documents(documents)
+    
+    # 混合检索器
+    ensemble_retriever = EnsembleRetriever(
+        retrievers=[vector_retriever, bm25_retriever],
+        weights=[0.7, 0.3]
+    )
+    ```
+  </Tab>
+  <Tab title="重排序">
+    使用专门的重排序模型提升结果质量。
 
-<Tab title="查询改写">
-  优化用户查询以提高检索效果。
-  
-  ```python
-  from langchain.chains import LLMChain
-  from langchain.prompts import PromptTemplate
-  
-  # 查询改写提示词
-  rewrite_prompt = PromptTemplate(
-      template="将以下用户问题改写为更适合检索的查询：\n{question}\n\n改写后的查询：",
-      input_variables=["question"]
-  )
-  
-  # 改写链
-  rewrite_chain = LLMChain(llm=llm, prompt=rewrite_prompt)
-  
-  # 使用
-  rewritten_query = rewrite_chain.run(question=user_question)
-  ```
-</Tab>
+    ```python
+    from langchain.retrievers import ContextualCompressionRetriever
+    from langchain.retrievers.document_compressors import CohereRerank
+    
+    # 重排序器
+    compressor = CohereRerank(model="rerank-multilingual-v2.0")
+    
+    # 压缩检索器
+    compression_retriever = ContextualCompressionRetriever(
+        base_compressor=compressor,
+        base_retriever=retriever
+    )
+    ```
+  </Tab>
+  <Tab title="查询改写">
+    优化用户查询以提高检索效果。
+
+    ```python
+    from langchain.chains import LLMChain
+    from langchain.prompts import PromptTemplate
+    
+    # 查询改写提示词
+    rewrite_prompt = PromptTemplate(
+        template="将以下用户问题改写为更适合检索的查询：\n{question}\n\n改写后的查询：",
+        input_variables=["question"]
+    )
+    
+    # 改写链
+    rewrite_chain = LLMChain(llm=llm, prompt=rewrite_prompt)
+    
+    # 使用
+    rewritten_query = rewrite_chain.run(question=user_question)
+    ```
+  </Tab>
 </Tabs>
 
 ### 成本优化
@@ -366,19 +369,19 @@ for i, doc in enumerate(documents):
 ### 检索质量指标
 
 <ResponseField name="准确率（Precision）" type="float">
-检索结果中相关文档的比例。
+  检索结果中相关文档的比例。
 </ResponseField>
 
 <ResponseField name="召回率（Recall）" type="float">
-所有相关文档中被检索到的比例。
+  所有相关文档中被检索到的比例。
 </ResponseField>
 
 <ResponseField name="MRR（Mean Reciprocal Rank）" type="float">
-第一个相关结果的平均排名倒数。
+  第一个相关结果的平均排名倒数。
 </ResponseField>
 
 <ResponseField name="NDCG（Normalized Discounted Cumulative Gain）" type="float">
-考虑排序位置的综合评估指标。
+  考虑排序位置的综合评估指标。
 </ResponseField>
 
 ### 生成质量指标
@@ -391,27 +394,27 @@ for i, doc in enumerate(documents):
 ## 发展趋势
 
 <Update label="2024年趋势" description="AI知识库领域的最新发展">
-### 多模态知识库
+  ### 多模态知识库
 
-支持文本、图片、视频等多种内容类型的统一检索和理解。
+  支持文本、图片、视频等多种内容类型的统一检索和理解。
 
-### 知识图谱融合
+  ### 知识图谱融合
 
-将向量检索与知识图谱结合，提供更结构化的知识表示。
+  将向量检索与知识图谱结合，提供更结构化的知识表示。
 
-### 实时更新
+  ### 实时更新
 
-支持文档的实时同步和增量索引，保持知识库的时效性。
+  支持文档的实时同步和增量索引，保持知识库的时效性。
 
-### 个性化推荐
+  ### 个性化推荐
 
-基于用户行为和偏好，提供个性化的知识推荐。
+  基于用户行为和偏好，提供个性化的知识推荐。
 </Update>
 
 ## 安全与合规
 
 <Warning>
-企业部署AI知识库时必须考虑以下安全问题。
+  企业部署AI知识库时必须考虑以下安全问题。
 </Warning>
 
 ### 数据安全
@@ -439,19 +442,16 @@ for i, doc in enumerate(documents):
 AI知识库技术正在快速发展，已经成为企业数字化转型的重要工具。通过合理的技术选型、优化策略和安全措施，可以构建高效、可靠的智能知识管理系统。
 
 <CardGroup cols={2}>
-<Card title="技术选型指南" icon="list-check">
-  根据业务需求选择合适的技术栈和产品方案。
-</Card>
-
-<Card title="实施路线图" icon="map">
-  从POC到生产环境的完整实施计划。
-</Card>
-
-<Card title="成本估算" icon="calculator">
-  评估构建和运营AI知识库的总体成本。
-</Card>
-
-<Card title="ROI分析" icon="chart-line">
-  量化AI知识库带来的效率提升和成本节约。
-</Card>
+  <Card title="技术选型指南" icon="list-check">
+    根据业务需求选择合适的技术栈和产品方案。
+  </Card>
+  <Card title="实施路线图" icon="map">
+    从POC到生产环境的完整实施计划。
+  </Card>
+  <Card title="成本估算" icon="calculator">
+    评估构建和运营AI知识库的总体成本。
+  </Card>
+  <Card title="ROI分析" icon="chart-line">
+    量化AI知识库带来的效率提升和成本节约。
+  </Card>
 </CardGroup>
